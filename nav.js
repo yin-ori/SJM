@@ -34,6 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
           submenuParent?.classList.remove("open");
         }
       });
-    }, 100); // Ensures elements exist
+    }, 100); 
   });
 });
