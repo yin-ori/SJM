@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JM Sugawara | Bridging Cultures. Building Meaning.</title>
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
+
+  <!-- hreflang SEO for language -->
+  <link rel="alternate" href="https://yourdomain.com/index.html" hreflang="en" />
+  <link rel="alternate" href="https://yourdomain.com/index-de.html" hreflang="de" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">JM Sugawara</a>
+    <div class="header-right">
+      <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
+      <div id="language-switch">
+        <a href="index.html" class="active-lang">EN</a> |
+        <a href="index-de.html">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li class="has-submenu">
+          <a href="services.html">Services</a>
+          <ul class="submenu">
+            <li><a href="services-consulting.html">Research Consulting</a></li>
+            <li><a href="services-translation.html">Translation</a></li>
+          </ul>
+        </li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+        <img src="assets/coffeeandstudy.png" alt="Cozy Workspace" class="hero-img" />
+        <div class="hero-overlay">
+          <h1>Language. Culture. Meaning.</h1>
+          <a href="services.html" class="cta-button">Explore My Work</a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Intro Section -->
+    <section class="preview-section">
+      <h3>Welcome to My Profile</h3>
+      <p>I’m a researcher and consultant specializing in language, culture, and meaning. I help others navigate academic complexity and intercultural communication through expert writing and insights.</p>
+      <a href="about.html" class="learn-more">Learn More →</a>
+    </section>
+    
+
+    <!-- Quick Access Tiles -->
+    <section class="tile-grid">
+      <a class="shadow-soft" href="research.html">
+        <img src="assets/icons/research.svg" alt="Research Icon" height="40">
+        <span>Research</span>
+      </a>
+      <a class="shadow-soft" href="services.html">
+        <img src="assets/icons/services.svg" alt="Services Icon" height="40">
+        <span>Services</span>
+      </a>
+      <a class="shadow-soft" href="articles.html">
+        <img src="assets/icons/articles.svg" alt="Articles Icon" height="40">
+        <span>Articles</span>
+      </a>
+      <a class="shadow-soft" href="contact.html">
+        <img src="assets/icons/contact.svg" alt="Contact Icon" height="40">
+        <span>Contact</span>
+      </a>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-box shadow-soft">
+      <blockquote>
+        <em>Inspirational Quote here.</em>
+      </blockquote>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
+  </footer>
+
+  <!-- JS for Hamburger + Dropdown -->
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+  const submenuParent = document.querySelector(".has-submenu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+
+  submenuParent.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      this.classList.toggle("open");
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+    if (!isClickInside && window.innerWidth <= 768) {
+      submenuParent.classList.remove("open");
+    }
+  });
+</script>
+</body>
+</html>

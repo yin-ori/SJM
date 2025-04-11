@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Über mich | JM Sugawara</title>
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">JM Sugawara</a>
+    <div class="header-right">
+      <button class="hamburger" aria-label="Menü öffnen">&#9776;</button>
+      <div id="language-switch">
+        <a href="about.html">EN</a> |
+        <a href="about-de.html" class="active-lang">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="about-de.html" class="active-page">Über mich</a></li>
+        <li><a href="research-de.html">Forschung</a></li>
+        <li class="has-submenu">
+          <a href="services-de.html">Services</a>
+          <ul class="submenu">
+            <li><a href="services-consulting-de.html">Forschungsberatung</a></li>
+            <li><a href="services-translation-de.html">Übersetzungen</a></li>
+          </ul>
+        </li>
+        <li><a href="articles-de.html">Artikel</a></li>
+        <li><a href="contact-de.html">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <div class="text-box">
+        <h2>Über mich</h2>
+
+        <p>Ich freue mich, dass du hier bist!</p>
+
+        <p>Hat dich vielleicht auch schon einmal etwas so in seinen Bann gezogen, dass du dich gar nicht mehr davon abwenden konntest?</p>
+
+        <p>
+          Für mich ist das die Japanologie, durch die ich die japanische Kultur, Sprache, Literatur und Natur beleuchte und so immer neue Aspekte ihrer Schönheit entdecke. Dabei fasziniert mich speziell die Verflechtung von Kultur und Sprache, die sich im Studium von Japan (und der japanischen Sprache) eindrucksvoll präsentiert.
+        </p>
+
+        <p>
+          Meine Forschungsinteressen gründen sich auf eine tiefe Faszination für <em>bunpō</em> (japanische Grammatik), <em>bungo</em> (klassisches Japanisch), die Verflechtung von Sprache und Kultur, Semantik und die Entwicklung japanischer Schriftsysteme. Außerdem habe ich mich im Bereich der Kognitiven Linguistik weitergebildet. Inwiefern Emotionen in der japanischen Sprache und Kultur verwoben sind, untersuche ich innerhalb meiner Dissertation.
+        </p>
+
+        <p>
+          In meiner Freizeit verbringe ich gern Familienzeit, verfasse <em>Haiku</em>, lese Romane und Kurzgeschichten, lasse aber auch hin und wieder mit Anime und Manga die Seele baumeln. Außerdem macht es mir Spaß, kulturelle Bezüge aufzuspüren und sie für andere zugänglich zu machen. Eines Winters hat mir eine Patientin meines Mannes in der Palliativstation ihre persönliche Haiku-Sammlung geliehen, die mich immer noch beeindruckt und mich daran erinnert, wie zerbrechlich und kostbar unsere Begegnungen sind.
+        </p>
+
+        <p>In Dankbarkeit erfreue ich mich an der Vielfalt der japanischen Kultur, die ich jeden Tag aufs Neue erleben darf.</p>
+
+        <p>
+          Ich würde mich freuen, auch von deinen Interessen zu hören! <a href="contact-de.html"><strong>Schreibe mir gern</strong></a>, was dich bewegt, welche Fragen du mitbringst oder einfach, wer du bist!
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 JM Sugawara. Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <!-- JS for Hamburger + Dropdown -->
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const submenuParent = document.querySelector(".has-submenu");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    submenuParent.addEventListener("click", function (e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        this.classList.toggle("open");
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+      if (!isClickInside && window.innerWidth <= 768) {
+        submenuParent.classList.remove("open");
+      }
+    });
+  </script>
+</body>
+</html>

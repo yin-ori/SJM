@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Übersetzungen | JM Sugawara</title>
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">JM Sugawara</a>
+    <div class="header-right">
+      <button class="hamburger" aria-label="Menü umschalten">&#9776;</button>
+      <div id="language-switch">
+        <a href="services-translation.html">EN</a> |
+        <a href="services-translation-de.html" class="active-lang">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="about-de.html">Über mich</a></li>
+        <li><a href="research-de.html">Forschung</a></li>
+        <li class="has-submenu">
+          <a href="services-de.html" class="active-page">Services</a>
+          <ul class="submenu">
+            <li><a href="services-consulting-de.html">Forschungsberatung</a></li>
+            <li><a href="services-translation-de.html" class="active-page">Übersetzung</a></li>
+          </ul>
+        </li>
+        <li><a href="articles-de.html">Artikel</a></li>
+        <li><a href="contact-de.html">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <div class="text-box">
+        <h2>Übersetzungen</h2>
+        <p>Ich freue mich über Anfragen für Übersetzungsaufträge.</p>
+        <p>Eine Übersicht meiner bisherigen Übersetzungsdienstleistungen findet sich hier:</p>
+
+        <h3>Allgemeine Aufträge</h3>
+        <ul>
+          <li><strong>seit Feb 2024:</strong> Übersetzungen von Manga, Website & App für WakuStudios Ltd (NamiComi) (Englisch→Deutsch)</li>
+          <li><strong>seit Feb 2024:</strong> Übersetzerin bei Japan Translation Center, Ltd</li>
+          <li><strong>2023:</strong> Reiseziele in Himeji (Japanisch→Deutsch)</li>
+          <li><strong>2022:</strong> Übersetzung von Videos zu Virtual Reality in Gaming (Deutsch→Japanisch)</li>
+        </ul>
+
+        <h3>Akademische Aufträge</h3>
+        <ul>
+          <li><strong>2022:</strong> "Nachrichten-Erfahrungen zu den Olympischen Spielen: Eine Fallstudie mit 18 Studierenden" von Shingo Dobashi, Hosei University (Japanisch→Deutsch)</li>
+          <li><strong>2019:</strong> Übersetzung von Zeugenaussagen der Atombombenüberlebenden Frau Hisako Kimura (NET-GTAS Global Peace & Universität Bonn) (Japanisch↔︎Deutsch)</li>
+          <li><strong>2019:</strong> Übersetzung agrarwissenschaftlicher Fachtexte zu <em>amacha</em> und <em>ajisai</em> (Unterstützung eines Promotionsprojekts der Landwirtschaftlichen Fakultät der Universität Bonn) (Japanisch→Deutsch)</li>
+          <li><strong>2019:</strong> "Tosa Nikki": Eine Übersetzungsanalyse der ersten drei Tage des Tagebuchs von Tosa (unpubliziert)</li>
+          <li><strong>2019:</strong> Übersetzung aus dem Werk "Tsūshi no hōhō" (通史の方法) im Original von Miyachi Masato (unpubliziert)</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 JM Sugawara. Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <!-- JS for Hamburger + Dropdown -->
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const submenuParent = document.querySelector(".has-submenu");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    submenuParent.addEventListener("click", function (e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        this.classList.toggle("open");
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+      if (!isClickInside && window.innerWidth <= 768) {
+        submenuParent.classList.remove("open");
+      }
+    });
+  </script>
+</body>
+</html>

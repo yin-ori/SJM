@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | JM Sugawara</title>
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">JM Sugawara</a>
+    <div class="header-right">
+      <button class="hamburger" aria-label="Menü umschalten">&#9776;</button>
+      <div id="language-switch">
+        <a href="services.html">EN</a> |
+        <a href="services-de.html" class="active-lang">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="about-de.html">Über mich</a></li>
+        <li><a href="research-de.html">Forschung</a></li>
+        <li class="has-submenu">
+          <a href="services-de.html" class="active-page">Services</a>
+          <ul class="submenu">
+            <li><a href="services-consulting.html">Consulting</a></li>
+            <li><a href="services-translation.html">Übersetzung</a></li>
+          </ul>
+        </li>
+        <li><a href="articles-de.html">Artikel</a></li>
+        <li><a href="contact-de.html">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <div class="text-box">
+        <h2>Services</h2>
+        <p>Ich biete Unterstützung in Form von Beratung zu Forschungsprojekten und professioneller Übersetzungen.      </div>
+    </section>
+
+    <section class="tile-grid">
+      <a class="shadow-soft" href="services-consulting.html">
+        <img src="assets/icons/consulting.svg" alt="Consulting Icon" height="40">
+        <span>Beratung</span>
+      </a>
+      <a class="shadow-soft" href="services-translation.html">
+        <img src="assets/icons/translation.svg" alt="Translation Icon" height="40">
+        <span>Übersetzung</span>
+      </a>
+    </section>
+  </main>
+
+  <section>
+    <div class="text-box">
+      <h2>Qualifikationen</h2>
+      <div class="cert-grid">
+        <div class="cert-item">
+          <img src="assets/badges/certified-associate-in-project-management-capm.png" alt="PMI CAPM" />
+          <p>Certified Associate in Project Management (CAPM)</p>
+        </div>
+        <div class="cert-item">
+          <img src="assets/badges/professional-scrum-product-owner-i-pspo-i.png" alt="Agile Product Owner" />
+          <img src="assets/badges/professional-scrum-product-owner-ii-pspo-ii.png" alt="Agile Product Owner" />
+          <p>Certified Agile Product Owner</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 JM Sugawara. Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <!-- JS for Hamburger + Dropdown -->
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const submenuParent = document.querySelector(".has-submenu");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    submenuParent.addEventListener("click", function (e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        this.classList.toggle("open");
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+      if (!isClickInside && window.innerWidth <= 768) {
+        submenuParent.classList.remove("open");
+      }
+    });
+  </script>
+</body>
+</html>

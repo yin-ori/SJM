@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research | JM Sugawara</title>
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">JM Sugawara</a>
+    <div class="header-right">
+      <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
+      <div id="language-switch">
+        <a href="research.html" class="active-lang">EN</a> |
+        <a href="research-de.html">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html" class="active-page">Research</a></li>
+        <li class="has-submenu">
+          <a href="services.html">Services</a>
+          <ul class="submenu">
+            <li><a href="services-consulting.html">Research Consulting</a></li>
+            <li><a href="services-translation.html">Translation</a></li>
+          </ul>
+        </li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <div class="text-box">
+        <h2>Research Areas</h2>
+        <ul>
+          <li><strong>since 2022:</strong> Reflections on textual emotions in response to earthquakes in the Tōhoku region</li>
+          <li><strong>2022:</strong> ‘Corona Calamity’ (<em>korona-ka</em>) during TOKYO2020 (published)</li>
+          <li><strong>2021:</strong> Conceptual Semantic Change as seen in <em>ka</em> (and the Neologism ‘Corona Calamity’) (Master’s Thesis)</li>
+          <li><strong>2019–2020:</strong> Translation of testimonies and interviews by atomic bomb survivor Mrs. Kimura (NET-GTAS Global Peace & University of Bonn)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="text-box">
+        <h2>Presentations</h2>
+        <ul>
+          <li>
+            <strong>2025/02:</strong> <em>On Emotion Expressions in Classical Japanese (bungo)</em><br>
+            <span>Tohoku University BUNGO-bun project 第10回研究会 (Invited)</span>
+          </li>
+          <li>
+            <strong>2023/02:</strong> <em>Reflections on Emotive Traces in Texts</em><br>
+            <span>20th STaPs Augsburg / Budapest / Vienna</span>
+          </li>
+          <li>
+            <strong>2019/10:</strong> <em>Vernissage for the Poster Exhibition of the Atomic Bombings of Hiroshima and Nagasaki</em><br>
+            <span>Hiroshima-Nagasaki-Project, University of Bonn (Invited)</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="text-box">
+        <h2>Scientific Translations</h2>
+        <ul>
+          <li><strong>2022:</strong> "Olympic News Experience: Case Studies of 18 University Students" by Shingo Dobashi, Hosei University (Japanese-German)</li>
+          <li><strong>2019:</strong> Translation of agronomic texts on "Amacha" (Japanese-German)</li>
+          <li><strong>2019:</strong> Translation of testimony by atomic bomb survivor Mrs. Kimura (Japanese-German)</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section>
+      <div class="text-box">
+        <h2>More Information</h2>
+        <p>You can find my complete research record here:</p>
+        <ul class="external-links">
+          <li><a href="https://researchmap.jp/jmsugawara?lang=en" target="_blank" rel="noopener">Researchmap Profile</a></li>
+          <li><a href="https://orcid.org/my-orcid?orcid=0000-0001-5079-998X" target="_blank" rel="noopener">ORCID iD</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
+  </footer>
+
+  <!-- JS for Hamburger + Dropdown -->
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const submenuParent = document.querySelector(".has-submenu");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    submenuParent.addEventListener("click", function (e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        this.classList.toggle("open");
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+      if (!isClickInside && window.innerWidth <= 768) {
+        submenuParent.classList.remove("open");
+      }
+    });
+  </script>
+</body>
+</html>

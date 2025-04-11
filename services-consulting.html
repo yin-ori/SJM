@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Consulting | JM Sugawara</title>
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">
+        <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+        J<span class="logo-highlight">M</span> Sugawara
+      </a>
+    <div class="header-right">
+      <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
+      <div id="language-switch">
+        <a href="services-consulting.html" class="active-lang">EN</a> |
+        <a href="services-consulting-de.html">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li class="has-submenu">
+          <a href="services.html" class="active-page">Services</a>
+          <ul class="submenu">
+            <li><a href="services-consulting.html" class="active-page">Research Consulting</a></li>
+            <li><a href="services-translation.html">Translation</a></li>
+          </ul>
+        </li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <div class="text-box">
+        <h2>Research Consulting: Turn Your Thesis Into a Project</h2>
+        <p class="text-quote">Guiding university students to achieve academic success through structured, project-based thesis planning.</p>
+        <h3>Introduction</h3>
+        <p>
+          Writing a thesis is a complex, time-intensive challenge, especially for those studying in a foreign country.
+          From adapting to different academic principles to balancing cultural nuances, international students face
+          unique hurdles. I offer structured, project-oriented <strong class="half-background">workshops</strong> as well as <strong class="half-background">individual consulting</strong> designed to demystify the thesis process and
+          provide students with the skills they need to plan, write, and complete their thesis with confidence.
+        </p>
+
+        <h3>Supporting Your Students’ Success</h3>
+        <p>
+          The workshops are specifically designed to meet the diverse needs of <strong  class="half-background">students in international settings</strong>. Conducted primarily in English, these courses are well-suited for international
+          students, yet they can also be adapted for Japanese students or offered entirely in Japanese upon request.
+          With a solid background in multicultural higher education, I bring insights into the varied academic
+          expectations across cultures and tailor my approach to support students effectively, no matter their background.
+        </p>
+
+        <h3>My Value For You</h3>
+        <p>
+          With extensive experience in academia and project management across Europe and Japan, I offer a unique skill
+          set that combines academic expertise with structured project methodologies:
+        </p>
+        <ul>
+          <li><strong>Academic Background:</strong> I have studied at higher education institutions, including the <strong  class="half-background">German University of Excellence, University of Bonn</strong>, during my undergraduate studies, <strong  class="half-background">Tôhoku University</strong> during my graduate studies, and passed doctoral classes at the <strong  class="half-background">Arctic University of Norway</strong> for my doctoral studies. This academic diversity equips me to address the specific needs of students from varied backgrounds.</li>
+          <li><strong>Professional Experience:</strong> A decade of experience in IT project management in Germany and Japan have equipped me with proven methodologies for goal-oriented planning and effective execution. As a <strong  class="half-background">Certified Agile Product Owner</strong> and <strong  class="half-background">PMI Certified Associate in Project Management (CAPM)</strong>, I bring structured, agile techniques to help students manage complex projects like their thesis. In addition, I have completed research management certifications, bridging my project management skills with academic research practices. You can find my licenses here.</li>
+          <li><strong>Student-Centered Approach:</strong> As both a working academic and a parent, I understand the time and responsibility pressures that academics face. I am committed to helping students break down their thesis projects into achievable, manageable steps, ensuring they can progress effectively toward completion.</li>
+        </ul>
+        <h3>Workshop Structure and Customization</h3>
+        <p>
+          My half-day workshops are offered <strong  class="half-background">online</strong> for flexible access or <strong  class="half-background">in person</strong>, if preferred. For on-site
+          workshops, the commissioning institution is asked to provide the facilities. Each workshop generally
+          accommodates up to 20 students. I am, however, open to customizing the format to meet the specific needs of
+          your institution and student population.
+        </p>
+        <p>
+          Following the workshop, I offer one-on-one follow-up sessions for students who seek additional guidance on
+          individual challenges or detailed feedback.
+        </p>
+
+        <h3>Key Benefits for Your Students</h3>
+        <ul>
+          <li><strong>Structured Guidance:</strong> My workshops simplify the thesis process into manageable, actionable stages, providing students with clear strategies and practical tools.</li>
+          <li><strong>Cross-Cultural Understanding:</strong> I bring valuable insights that address the distinct challenges international students may face when adapting to new academic environments.</li>
+          <li><strong>Individualized Support:</strong> For students who need additional guidance, one-on-one sessions offer tailored advice to tackle personal hurdles and keep them on track.</li>
+        </ul>
+
+        <h3>Take the Next Step</h3>
+        <p>
+          Partnering with me can help your students gain confidence, stay organized, and approach their thesis with a
+          structured, project-based mindset. <a href="contact.html"><strong>Contact me</strong></a> to learn more about
+          how I can support your students in successfully completing their thesis projects.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
+  </footer>
+
+  <!-- JS for Hamburger + Dropdown -->
+<!-- JS for Hamburger + Dropdown -->
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+  const submenuParent = document.querySelector(".has-submenu");
+  const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+
+  submenuToggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      const parent = e.target.closest(".has-submenu");
+      parent.classList.toggle("open");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+    if (!isClickInside && window.innerWidth <= 768) {
+      submenuParent.classList.remove("open");
+    }
+  });
+</script>
+
+</body>
+</html>
