@@ -5,37 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | JM Sugawara</title>
 
-  <!-- Fonts & CSS -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
+  <!-- Fonts & Styles -->
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- Language Switch -->
-  <div id="language-switch">
-    <a href="about.html" class="active-lang">EN</a> |
-    <a href="about-de.html">DE</a>
-  </div>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">
+      <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+      J<span class="logo-highlight">M</span> Sugawara
+    </a>    
+    <div class="header-right">
+      <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
+      <div id="language-switch">
+        <a href="about.html" class="active-lang">EN</a> |
+        <a href="about-de.html">DE</a>
+      </div>
+    </div>
+  </header>
 
-<!-- header.html -->
-<header>
-  <h1><a href="index.html">JM Sugawara</a></h1>
-  <p><em>Bridging Cultures. Building Meaning.</em></p>
-</header>
-
-<!-- nav.html -->
-<nav>
-  <ul>
-    <li><a href="about.html" class="active-page">About</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="articles.html">Articles</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-
-  <div id="nav"></div>
-  <script src="load-shared.js"></script>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="about.html" class="active-page">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li class="has-submenu">
+          <a href="services.html">Services</a>
+          <ul class="submenu">
+            <li><a href="services-consulting.html">Research Consulting</a></li>
+            <li><a href="services-translation.html">Translation</a></li>
+          </ul>
+        </li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- Main Content -->
   <main>
@@ -55,7 +63,7 @@
           Living in Japan has offered me the rare opportunity to engage with these cultural and linguistic layers firsthand. Each day brings a new perspective, and I remain humbled by the depth and diversity of Japanese culture.
         </p>
         <p>
-          I would <strong>love</strong> to hear your story too. Feel free to <a href="contact.html" class="external-links"><strong>reach out</strong></a> to me. I look forward to connecting.
+          I would <strong>love</strong> to hear your story too. Feel free to <a href="contact.html"><strong>reach out</strong></a> to me. I look forward to connecting.
         </p>
       </div>
     </section>
@@ -65,5 +73,31 @@
   <footer>
     <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
   </footer>
+
+  <!-- JS for Hamburger + Dropdown -->
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const submenuParent = document.querySelector(".has-submenu");
+    const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
+  
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  
+    submenuToggles.forEach(toggle => {
+      toggle.addEventListener("click", (e) => {
+        const parent = e.target.closest(".has-submenu");
+        parent.classList.toggle("open");
+      });
+    });
+  
+    document.addEventListener("click", (e) => {
+      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+      if (!isClickInside && window.innerWidth <= 768) {
+        submenuParent.classList.remove("open");
+      }
+    });
+  </script>
 </body>
 </html>

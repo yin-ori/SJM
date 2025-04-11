@@ -13,7 +13,10 @@
 <body>
   <!-- Header -->
   <header>
-    <a href="index.html" class="logo">JM Sugawara</a>
+    <a href="index.html" class="logo">
+      <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+      J<span class="logo-highlight">M</span> Sugawara
+    </a>
     <div class="header-right">
       <button class="hamburger" aria-label="Menü umschalten">&#9776;</button>
       <div id="language-switch">
@@ -32,8 +35,8 @@
         <li class="has-submenu">
           <a href="services-de.html" class="active-page">Services</a>
           <ul class="submenu">
-            <li><a href="services-consulting.html">Consulting</a></li>
-            <li><a href="services-translation.html">Übersetzung</a></li>
+            <li><a href="services-consulting-de.html">Forschungsberatung</a></li>
+            <li><a href="services-translation-de.html">Übersetzung</a></li>
           </ul>
         </li>
         <li><a href="articles-de.html">Artikel</a></li>
@@ -51,11 +54,11 @@
     </section>
 
     <section class="tile-grid">
-      <a class="shadow-soft" href="services-consulting.html">
+      <a class="shadow-soft" href="services-consulting-de.html">
         <img src="assets/icons/consulting.svg" alt="Consulting Icon" height="40">
         <span>Beratung</span>
       </a>
-      <a class="shadow-soft" href="services-translation.html">
+      <a class="shadow-soft" href="services-translation-de.html">
         <img src="assets/icons/translation.svg" alt="Translation Icon" height="40">
         <span>Übersetzung</span>
       </a>
@@ -84,29 +87,30 @@
     <p>&copy; 2025 JM Sugawara. Alle Rechte vorbehalten.</p>
   </footer>
 
-  <!-- JS for Hamburger + Dropdown -->
-  <script>
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
-    const submenuParent = document.querySelector(".has-submenu");
+ <!-- JS for Hamburger + Dropdown -->
+ <script>
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+  const submenuParent = document.querySelector(".has-submenu");
+  const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
 
-    hamburger.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-    });
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
 
-    submenuParent.addEventListener("click", function (e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        this.classList.toggle("open");
-      }
+  submenuToggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      const parent = e.target.closest(".has-submenu");
+      parent.classList.toggle("open");
     });
+  });
 
-    document.addEventListener("click", (e) => {
-      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
-      if (!isClickInside && window.innerWidth <= 768) {
-        submenuParent.classList.remove("open");
-      }
-    });
-  </script>
+  document.addEventListener("click", (e) => {
+    const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+    if (!isClickInside && window.innerWidth <= 768) {
+      submenuParent.classList.remove("open");
+    }
+  });
+</script>
 </body>
 </html>

@@ -13,7 +13,10 @@
 <body>
   <!-- Header -->
   <header>
-    <a href="index.html" class="logo">JM Sugawara</a>
+    <a href="index.html" class="logo">
+      <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+      J<span class="logo-highlight">M</span> Sugawara
+    </a>
     <div class="header-right">
       <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
       <div id="language-switch">
@@ -54,7 +57,7 @@
     <section class="tile-grid">
       <a class="shadow-soft" href="services-consulting.html">
         <img src="assets/icons/consulting.svg" alt="Consulting Icon" height="40">
-        <span>Consulting</span>
+        <span>Research Consulting</span>
       </a>
       <a class="shadow-soft" href="services-translation.html">
         <img src="assets/icons/translation.svg" alt="Translation Icon" height="40">
@@ -86,32 +89,30 @@
     <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
   </footer>
 
-  <!-- JS for Hamburger + Dropdown -->
-  <script>
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
-    const submenuParent = document.querySelector(".has-submenu");
+ <!-- JS for Hamburger + Dropdown -->
+ <script>
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+  const submenuParent = document.querySelector(".has-submenu");
+  const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
 
-    hamburger.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+
+  submenuToggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      const parent = e.target.closest(".has-submenu");
+      parent.classList.toggle("open");
     });
+  });
 
-    submenuParent.addEventListener("click", function (e) {
-  if (window.innerWidth <= 768) {
-    const isSubLink = e.target.closest('.submenu a');
-    if (!isSubLink) {
-      e.preventDefault();
-      this.classList.toggle("open");
+  document.addEventListener("click", (e) => {
+    const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+    if (!isClickInside && window.innerWidth <= 768) {
+      submenuParent.classList.remove("open");
     }
-  }
-});
-
-    document.addEventListener("click", (e) => {
-      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
-      if (!isClickInside && window.innerWidth <= 768) {
-        submenuParent.classList.remove("open");
-      }
-    });
-  </script>
+  });
+</script>
 </body>
 </html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Translation | JM Sugawara</title>
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">
+        <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+        J<span class="logo-highlight">M</span> Sugawara
+      </a>
+    <div class="header-right">
+      <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
+      <div id="language-switch">
+        <a href="services-translation.html" class="active-lang">EN</a> |
+        <a href="services-translation-de.html">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li class="has-submenu">
+          <a href="services.html" class="active-page">Services</a>
+          <ul class="submenu">
+            <li><a href="services-consulting.html">Research Consulting</a></li>
+            <li><a href="services-translation.html" class="active-page">Translation</a></li>
+          </ul>
+        </li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <div class="text-box">
+        <h2>Translation</h2>
+
+        <p>Are you looking for translation services in English, German or Japanese?</p>
+        <p>I’m looking forward to hearing from you and working out the details of the translation together!</p>
+        <p>My passion for culture and language is what led me to offer my services in the fields of translation and localization.</p>
+        <p>One, maybe even the most essential part of the translation process is the consideration of culture. Cross-cultural translation is a craft that requires capturing and rendering not only expressions, but also cultural nuance and therefore demands for a variety of skills, including in-depth cultural knowledge, language and translation skills. I have acquired many of these skills through my academic and professional career and continue to build on them.</p>
+        <p>In my undergraduate degree I majored in Japanese language and translation, which I continued during my graduate degree, in which I specialized in Japanese technical and academic language, media communication in Japan and Japanese history. Furthermore, I attended lectures on German linguistics to further improve my translation skills.</p>
+        <p>Feel free to also connect concerning services, that may not be listed here.</p>
+        <p>In order to provide a high-quality service, I will evaluate feasibility and suitability for each request. I usually get back to you within a week.</p>
+        <p><a href="contact.html"><strong>Contact me</strong></a> to learn more.</p>
+        
+        <h2>Qualifications</h2>
+        <h3>Non-academic Translations</h3>
+        <ul>
+          <li><strong>since Feb 2024:</strong> Translation and localization of manga, website & app for WakuStudios Ltd (NamiComi) (English→German)</li>
+          <li><strong>since Feb 2024:</strong> Translator at Japan Translation Center, Ltd</li>
+          <li><strong>2023:</strong> Tourism in Himeji (Japanese→German)</li>
+          <li><strong>2022:</strong> Translation of videos on virtual reality in gaming (German→Japanese)</li>
+        </ul>
+
+        <h3>Academic Translations</h3>
+        <ul>
+          <li><strong>2022:</strong> "News Experiences of the Olympic Games: A case study with 18 students" by Shingo Dobashi, Hosei University (Japanese→German)</li>
+          <li><strong>2019:</strong> Translation of testimonies of the atomic bomb survivor Ms. Hisako Kimura (NET-GTAS Global Peace & University of Bonn) (Japanese↔︎German)</li>
+          <li><strong>2019:</strong> Translation of agricultural research on <em>amacha</em> and <em>ajisai</em> (supporting a doctoral project of the Faculty of Agriculture at the University of Bonn) (Japanese→German)</li>
+          <li><strong>2019:</strong> "Tosa Nikki": A translation analysis of the first three days of Tosa's diary (University of Bonn)</li>
+          <li><strong>2019:</strong> Excerpt translation of "Tsûshi no hôhô" (通史の方法) by Miyachi Masato (University of Bonn)</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
+  </footer>
+ <!-- JS for Hamburger + Dropdown -->
+ <script>
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+  const submenuParent = document.querySelector(".has-submenu");
+  const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+
+  submenuToggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      const parent = e.target.closest(".has-submenu");
+      parent.classList.toggle("open");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+    if (!isClickInside && window.innerWidth <= 768) {
+      submenuParent.classList.remove("open");
+    }
+  });
+</script>
+</body>
+</html>

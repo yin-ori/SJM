@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JM Sugawara | Professional & Academic Profile</title>
+  <title>JM Sugawara | Brücken zwischen Kulturen</title>
 
   <!-- Fonts & Styles -->
   <link rel="stylesheet" href="style.css" />
@@ -15,65 +15,115 @@
 </head>
 
 <body>
-  <!-- Language Switch -->
-  <div id="language-switch">
-    <a href="index.html" class="active-lang">EN</a> |
-    <a href="index-de.html">DE</a>
-  </div>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">
+      <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+      J<span class="logo-highlight">M</span> Sugawara
+    </a> 
+    <div class="header-right">
+      <button class="hamburger" aria-label="Menü umschalten">&#9776;</button>
+      <div id="language-switch">
+        <a href="index.html">EN</a> |
+        <a href="index-de.html" class="active-lang">DE</a>
+      </div>
+    </div>
+  </header>
 
-<!-- header.html -->
-<header>
-  <h1><a href="index.html">JM Sugawara</a></h1>
-  <p><em>Bridging Cultures. Building Meaning.</em></p>
-</header>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="about-de.html">Über mich</a></li>
+        <li><a href="research-de.html">Forschung</a></li>
+        <li class="has-submenu">
+          <a href="services-de.html">Services</a>
+          <ul class="submenu">
+            <li><a href="services-consulting-de.html">Forschungsberatung</a></li>
+            <li><a href="services-translation-de.html">Übersetzungen</a></li>
+          </ul>
+        </li>
+        <li><a href="articles-de.html">Artikel</a></li>
+        <li><a href="contact-de.html">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<!-- nav-de.html -->
-<nav>
-  <ul>
-    <li><a href="about-de.html">Über mich</a></li>
-    <li><a href="research-de.html">Forschung</a></li>
-    <li><a href="services-de.html">Services</a></li>
-    <li><a href="articles-de.html">Artikel</a></li>
-    <li><a href="contact-de.html">Kontakt</a></li>
-  </ul>
-</nav>
-
-  <!-- Hero Image -->
-  <div class="indexbackground-image">
-    <img src="assets/wintershrine.jpg" alt="Winter Wonderland" />
-  </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="assets/coffeeandstudy.png" alt="Cozy Workspace" class="hero-img" />
+    <div class="hero-overlay">
+      <h1>Sprache. Kultur. Bedeutung.</h1>
+      <a href="services.html" class="cta-button">Gehe auf Erkundungstour</a>
+</div>
+</section>
 
   <!-- Main Content -->
   <main>
-    <section id="about">
-      <h2>Welcome to My Profile</h2>
-      <p>Let me introduce myself.</p>
+    <!-- Intro Section -->
+    <section class="preview-section">
+      <h3>Willkommen auf meinem Profil</h3>
+      <p>Ich bin Forscherin und Beraterin mit Fokus auf Sprache, Kultur und Bedeutung. Ich helfe Menschen, sich in akademischen und interkulturellen Kontexten besser zu orientieren.</p>
+      <a href="about-de.html" class="learn-more">Mehr erfahren →</a>
     </section>
 
-    <section id="research">
-      <h2>Academic Research and Publications</h2>
-      <p>Overview of research areas, current projects, and publications.</p>
+    <!-- Quick Access Tiles -->
+    <section class="tile-grid">
+      <a class="shadow-soft" href="research-de.html">
+        <img src="assets/icons/research.svg" alt="Forschung Icon" height="40">
+        <span>Forschung</span>
+      </a>
+      <a class="shadow-soft" href="services-de.html">
+        <img src="assets/icons/services.svg" alt="Services Icon" height="40">
+        <span>Services</span>
+      </a>
+      <a class="shadow-soft" href="articles-de.html">
+        <img src="assets/icons/articles.svg" alt="Artikel Icon" height="40">
+        <span>Artikel</span>
+      </a>
+      <a class="shadow-soft" href="contact-de.html">
+        <img src="assets/icons/contact.svg" alt="Kontakt Icon" height="40">
+        <span>Kontakt</span>
+      </a>
     </section>
 
-    <section id="services">
-      <h2>Services Offered</h2>
-      <p>Description of business services such as consulting, workshops, and writing.</p>
-    </section>
-
-    <section id="articles">
-      <h2>Latest Articles and Essays</h2>
-      <p>Links or previews to published articles, essays, or blog posts.</p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <p>You can reach me via the <a href="contact.html">contact form</a>.</p>
+    <!-- Quote Section -->
+    <section class="quote-box">
+      <blockquote>
+        <em>Inspirierendes Zitat hier.</em>
+      </blockquote>
     </section>
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
+    <p>&copy; 2025 JM Sugawara. Alle Rechte vorbehalten.</p>
   </footer>
+
+   <!-- JS for Hamburger + Dropdown -->
+   <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const submenuParent = document.querySelector(".has-submenu");
+    const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
+  
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  
+    submenuToggles.forEach(toggle => {
+      toggle.addEventListener("click", (e) => {
+        const parent = e.target.closest(".has-submenu");
+        parent.classList.toggle("open");
+      });
+    });
+  
+    document.addEventListener("click", (e) => {
+      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+      if (!isClickInside && window.innerWidth <= 768) {
+        submenuParent.classList.remove("open");
+      }
+    });
+  </script>
 </body>
 </html>

@@ -13,7 +13,10 @@
 <body>
   <!-- Header -->
   <header>
-    <a href="index.html" class="logo">JM Sugawara</a>
+    <a href="index.html" class="logo">
+      <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+      J<span class="logo-highlight">M</span> Sugawara
+    </a>
     <div class="header-right">
       <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
       <div id="language-switch">
@@ -48,9 +51,9 @@
       <div class="text-box">
         <h2>Research Areas</h2>
         <ul>
-          <li><strong>since 2022:</strong> Reflections on textual emotions in response to earthquakes in the Tōhoku region</li>
-          <li><strong>2022:</strong> ‘Corona Calamity’ (<em>korona-ka</em>) during TOKYO2020 (published)</li>
-          <li><strong>2021:</strong> Conceptual Semantic Change as seen in <em>ka</em> (and the Neologism ‘Corona Calamity’) (Master’s Thesis)</li>
+          <li><strong>since 2022:</strong> Reflections on textual emotions in response to earthquakes in the Tôhoku region</li>
+          <li><strong>2022:</strong> 'Corona Calamity' (<em>korona-ka</em>) during TOKYO2020 (published)</li>
+          <li><strong>2021:</strong> Conceptual Semantic Change as seen in <em>ka</em> (and the Neologism 'Corona Calamity') (Master's Thesis)</li>
           <li><strong>2019–2020:</strong> Translation of testimonies and interviews by atomic bomb survivor Mrs. Kimura (NET-GTAS Global Peace & University of Bonn)</li>
         </ul>
       </div>
@@ -81,7 +84,7 @@
         <h2>Scientific Translations</h2>
         <ul>
           <li><strong>2022:</strong> "Olympic News Experience: Case Studies of 18 University Students" by Shingo Dobashi, Hosei University (Japanese-German)</li>
-          <li><strong>2019:</strong> Translation of agronomic texts on "Amacha" (Japanese-German)</li>
+          <li><strong>2019:</strong> Translation of agronomic texts on 'Amacha' (Japanese-German)</li>
           <li><strong>2019:</strong> Translation of testimony by atomic bomb survivor Mrs. Kimura (Japanese-German)</li>
         </ul>
       </div>
@@ -109,18 +112,19 @@
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
     const submenuParent = document.querySelector(".has-submenu");
-
+    const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
+  
     hamburger.addEventListener("click", () => {
       navMenu.classList.toggle("active");
     });
-
-    submenuParent.addEventListener("click", function (e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        this.classList.toggle("open");
-      }
+  
+    submenuToggles.forEach(toggle => {
+      toggle.addEventListener("click", (e) => {
+        const parent = e.target.closest(".has-submenu");
+        parent.classList.toggle("open");
+      });
     });
-
+  
     document.addEventListener("click", (e) => {
       const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
       if (!isClickInside && window.innerWidth <= 768) {

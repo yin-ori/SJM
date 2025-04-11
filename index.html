@@ -17,7 +17,10 @@
 <body>
   <!-- Header -->
   <header>
-    <a href="index.html" class="logo">JM Sugawara</a>
+    <a href="index.html" class="logo">
+      <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+      J<span class="logo-highlight">M</span> Sugawara
+    </a>
     <div class="header-right">
       <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
       <div id="language-switch">
@@ -86,7 +89,7 @@
     </section>
 
     <!-- Quote Section -->
-    <section class="quote-box shadow-soft">
+    <section class="quote-box">
       <blockquote>
         <em>Inspirational Quote here.</em>
       </blockquote>
@@ -98,21 +101,22 @@
     <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
   </footer>
 
-  <!-- JS for Hamburger + Dropdown -->
-<script>
+ <!-- JS for Hamburger + Dropdown -->
+ <script>
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
   const submenuParent = document.querySelector(".has-submenu");
+  const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
 
   hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
   });
 
-  submenuParent.addEventListener("click", function (e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      this.classList.toggle("open");
-    }
+  submenuToggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      const parent = e.target.closest(".has-submenu");
+      parent.classList.toggle("open");
+    });
   });
 
   document.addEventListener("click", (e) => {

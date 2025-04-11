@@ -13,7 +13,10 @@
 <body>
   <!-- Header -->
   <header>
-    <a href="index.html" class="logo">JM Sugawara</a>
+    <a href="index.html" class="logo">
+      <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+      J<span class="logo-highlight">M</span> Sugawara
+    </a>    
     <div class="header-right">
       <button class="hamburger" aria-label="Menü öffnen">&#9776;</button>
       <div id="language-switch">
@@ -83,18 +86,19 @@
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
     const submenuParent = document.querySelector(".has-submenu");
-
+    const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
+  
     hamburger.addEventListener("click", () => {
       navMenu.classList.toggle("active");
     });
-
-    submenuParent.addEventListener("click", function (e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        this.classList.toggle("open");
-      }
+  
+    submenuToggles.forEach(toggle => {
+      toggle.addEventListener("click", (e) => {
+        const parent = e.target.closest(".has-submenu");
+        parent.classList.toggle("open");
+      });
     });
-
+  
     document.addEventListener("click", (e) => {
       const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
       if (!isClickInside && window.innerWidth <= 768) {
