@@ -9,7 +9,7 @@ body {
   font-family: 'Source Sans 3', sans-serif;
   background: #FCF9F4;
   color: #3A3A3A;
-  line-height: 1.6;
+  line-height: 1.5;
   max-width: 1200px;
   margin: auto;
   padding: 0 20px 20px;
@@ -28,7 +28,7 @@ header {
   gap: 10px;
   font-family: 'Lora', serif;
   font-weight: bold;
-  font-size: 1.15em;
+  font-size: 1.5em;
   color: #3A3A3A;
   text-decoration: none;
   margin-left: 5%;
@@ -100,9 +100,10 @@ header {
 .nav-menu a {
   text-decoration: none;
   color: #3A3A3A;
+  font-size: 1em;
   font-weight: 600;
   padding: 8px 14px;
-  border-radius: 6px;
+  border-radius: 5px;
 }
 
 .nav-menu a:hover {
@@ -113,13 +114,15 @@ header {
   background-color: #E7E2DB;
 }
 
+
+
 /* Submenu */
 .submenu {
   display: none;
   position: absolute;
   top: calc(100% + 5px);
   background: #FCFAF5;
-  border-radius: 6px;
+  border-radius: 5px;
   padding: 10px 0;
   list-style: none;
   min-width: 180px;
@@ -209,21 +212,18 @@ section {
   margin-bottom: 50px;
 }
 
-/* Text-Box Section */
-main:has(> section:first-child:only-child > .text-box) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 60vh;
-  flex-direction: column;
+.half-background {
+  background: linear-gradient(to top, #E4D6FB 30%, transparent 50%);
+  border-radius: 10px;
 }
 
+/* Text-Box Section */
 .text-box {
   max-width: 800px;
   margin: 0 auto;
   padding: 50px 30px;
   background-color: #FEFDFB;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -239,6 +239,12 @@ main:has(> section:first-child:only-child > .text-box) {
   font-size: 1.3em;
   margin-top: 40px;
   font-style: italic;
+  font-weight: 600;
+}
+
+.text-box h4 {
+  font-size: 1.15em;
+  margin-top: 40px;
   font-weight: 600;
 }
 
@@ -363,7 +369,7 @@ main:has(> section:first-child:only-child > .text-box) {
   background: #FEFDFB;
   border-left: 6px solid #BFAEDC;
   padding: 50px 30px;
-  border-radius: 14px;
+  border-radius: 15px;
   font-family: 'Lora', serif;
   font-size: 1.3em;
   text-align: center;
@@ -444,10 +450,22 @@ footer {
 
 /* Responsive Navigation */
 @media (max-width: 768px) {
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #3A3A3A;
+    text-decoration: none;
+    margin-left: 1%;
+  }
+  
   .hamburger {
     display: inline-block;
   }
-
+  
   .nav-container {
     flex-direction: column;
     align-items: center;
@@ -484,6 +502,7 @@ footer {
     gap: 25px;
     padding: 0 25px;
   }
+  
 }
 
 /* Dark Mode */
