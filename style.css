@@ -114,8 +114,6 @@ header {
   background-color: #E7E2DB;
 }
 
-
-
 /* Submenu */
 .submenu {
   display: none;
@@ -453,13 +451,13 @@ footer {
   .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0px;
     font-family: 'Lora', serif;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: #3A3A3A;
     text-decoration: none;
-    margin-left: 1%;
+    margin-left: 0px;
   }
   
   .hamburger {
@@ -494,6 +492,25 @@ footer {
   }
 }
 
+@media (max-width: 500px) {
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: #3A3A3A;
+    text-decoration: none;
+    margin-left: 15%;
+  }
+
+  .logo img {
+    height: 0px;
+    width: auto;
+  }
+}
+
 /* Responsive Tile */
 @media (min-width: 500px) and (max-width: 950px) {
   .tile-grid {
@@ -502,7 +519,6 @@ footer {
     gap: 25px;
     padding: 0 25px;
   }
-  
 }
 
 /* Dark Mode */
@@ -536,6 +552,8 @@ footer {
     background-color: #4A4540;
   }
 
+
+  
   .hamburger {
     color: #F4F0EC;
   }
