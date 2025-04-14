@@ -511,9 +511,27 @@ footer {
     margin-left: 15%;
   }
 
-  .logo img {
+  .logo img,
+  .cert-item img {
     height: 0px;
     width: auto;
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* genau eine Spalte */
+    gap: 20px;
+    padding: 0 15px;
+    margin: 0 auto;
+    justify-items: center;
+  }
+
+  .cert-item {
+    width: 100%;
+    max-width: 280px;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
   }
 }
 
