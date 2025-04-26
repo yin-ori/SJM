@@ -97,29 +97,36 @@ header {
   position: relative;
 }
 
-.nav-menu a {
+/* Link-Styles */
+.nav-menu a,
+.submenu li a {
   text-decoration: none;
   color: #3A3A3A;
   font-size: 1em;
   font-weight: 600;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 5px;
+  display: block;
+  transition: background-color 0.2s ease;
 }
 
+/* Link Highlight */
 .nav-menu a:hover {
-  background-color: #EAE6DF;
+  background-color: #E2DED7;
 }
 
+/* Active Page */
 .nav-menu a.active-page {
-  background-color: #E7E2DB;
+  background-color: #F0ECE6;
 }
 
 /* Submenu */
 .submenu {
   display: none;
   position: absolute;
-  top: calc(100% + 5px);
-  background: #FCFAF5;
+  top: 100%; 
+  left: 0;
+  background-color: #FCF9F4;
   border-radius: 5px;
   padding: 10px 0;
   list-style: none;
@@ -127,22 +134,14 @@ header {
   z-index: 100;
 }
 
-.submenu li a {
+/* Submenu visible */
+.nav-menu li:hover > .submenu {
   display: block;
-  padding: 10px 16px;
-  color: #3A3A3A;
-  font-weight: 500;
-  border-radius: 5px;
-  text-decoration: none;
 }
 
+/* Hover for Submenu-Links */
 .submenu li a:hover {
-  background-color: #EAE6DF;
-}
-
-.has-submenu:hover .submenu,
-.has-submenu.open .submenu {
-  display: block;
+  background-color: #E2DED7;
 }
 
 main {
@@ -513,13 +512,13 @@ footer {
 
   .logo img,
   .cert-item img {
-    height: 0px;
+    height: 30px;
     width: auto;
   }
 
   .cert-grid {
     display: grid;
-    grid-template-columns: 1fr; /* genau eine Spalte */
+    grid-template-columns: 1fr; /* 1 Column */
     gap: 20px;
     padding: 0 15px;
     margin: 0 auto;
@@ -529,7 +528,7 @@ footer {
   .cert-item {
     width: 100%;
     max-width: 280px;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     padding: 15px;
   }
@@ -604,6 +603,7 @@ footer {
   }
 
   .text-box a:hover {
+    color: #E3D3ff;
     border-bottom: 1px solid #BFAEDC;
   }
 
@@ -625,6 +625,10 @@ footer {
     color: #EAE4DC;
   }
 
+  .half-background {
+    background: none;
+  }
+
   .quote-box {
     background: #4A4540;
     color: #EAE4DC;
@@ -632,6 +636,10 @@ footer {
   }
 
   .quote-box::before {
+    color: #BFAEDC;
+  }
+
+  .text-quote {
     color: #BFAEDC;
   }
 
