@@ -518,8 +518,7 @@ footer {
 
   .cert-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 1 Column */
-    gap: 20px;
+    grid-template-columns: 1fr; 
     padding: 0 15px;
     margin: 0 auto;
     justify-items: center;
