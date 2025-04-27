@@ -99,7 +99,7 @@ header {
 
 /* Link-Styles */
 .nav-menu a,
-.submenu li a {
+.submenu a {
   text-decoration: none;
   color: #3A3A3A;
   font-size: 1em;
@@ -251,8 +251,7 @@ section {
   line-height: 1.8;
 }
 
-.text-box a,
-.text-box a:visited {
+.text-box a {
   color: #7D6BA2;
   font-weight: 600;
   text-decoration: none;
