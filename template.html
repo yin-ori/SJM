@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- or "de" for German pages -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JM Sugawara | [Page Title]</title>
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
+
+  <!-- hreflang SEO for language versions -->
+  <link rel="alternate" href="https://jmsugawara.com/index.html" hreflang="en" />
+  <link rel="alternate" href="https://jmsugawara.com/index-de.html" hreflang="de" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="[index.html or index-de.html]" class="logo">
+      <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+      J<span class="logo-highlight">M</span> Sugawara
+    </a>
+    <div class="header-right">
+      <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
+      <div id="language-switch">
+        <a href="index.html" [class="active-lang"]>EN</a> |
+        <a href="index-de.html" [class="active-lang"]>DE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Hero Section (optional) -->
+  <section class="hero">
+    <img src="assets/coffeeandstudy.png" alt="Hero Image" class="hero-img" />
+    <div class="hero-overlay">
+      <h1>[Hero Heading]</h1>
+      <a href="[target-link]" class="cta-button">[Button Text]</a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Intro Section -->
+    <section class="preview-section">
+      <h3>[Section Title]</h3>
+      <p>[Insert your text content here.]</p>
+      <a href="[more-link]" class="learn-more">Learn More →</a>
+    </section>
+
+    <!-- Tile Grid Section -->
+    <section class="tile-grid">
+      <a class="shadow-soft" href="[page1.html]">
+        <img src="assets/icons/research.svg" alt="[Icon Description]" height="40">
+        <span>[Tile Title]</span>
+      </a>
+      <!-- Add more tiles as needed -->
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-box">
+      <blockquote>
+        <em>[Your quote here.]</em>
+      </blockquote>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function activateNavbarScripts() {
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-menu");
+      const submenuParent = document.querySelector(".has-submenu");
+
+      if (hamburger) {
+        hamburger.addEventListener("click", () => {
+          navMenu.classList.toggle("active");
+        });
+      }
+
+      document.addEventListener("click", (e) => {
+        const isClickInside = submenuParent?.contains(e.target) || hamburger?.contains(e.target);
+        if (!isClickInside && window.innerWidth <= 768) {
+          submenuParent?.classList.remove("open");
+        }
+      });
+    }
+
+    // Load the correct navbar (English or German)
+    fetch('[navbar-en.html or navbar-de.html]')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        activateNavbarScripts();
+      })
+      .catch(error => console.error('Error loading the navbar:', error));
+  </script>
+
+</body>
+</html>
