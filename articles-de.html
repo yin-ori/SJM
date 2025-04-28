@@ -27,23 +27,7 @@
   </header>
 
   <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <ul class="nav-menu">
-        <li><a href="about-de.html">Über mich</a></li>
-        <li><a href="research-de.html">Forschung</a></li>
-        <li class="has-submenu">
-          <a href="services-de.html">Services</a>
-          <ul class="submenu">
-            <li><a href="services-consulting-de.html">Forschungsberatung</a></li>
-            <li><a href="services-translation-de.html">Übersetzung</a></li>
-          </ul>
-        </li>
-        <li><a href="articles-de.html" class="active-page">Artikel</a></li>
-        <li><a href="contact-de.html">Kontakt</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div id="navbar-placeholder"></div>
 
   <!-- Main Content -->
   <main>
@@ -60,30 +44,35 @@
     <p>&copy; 2025 JM Sugawara. Alle Rechte vorbehalten.</p>
   </footer>
 
-  <!-- JS for Hamburger + Dropdown -->
-  <script>
+  <!-- JS -->
+ <script>
+  function activateNavbarScripts() {
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
     const submenuParent = document.querySelector(".has-submenu");
-    const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
   
-    hamburger.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-    });
-  
-    submenuToggles.forEach(toggle => {
-      toggle.addEventListener("click", (e) => {
-        const parent = e.target.closest(".has-submenu");
-        parent.classList.toggle("open");
+    if (hamburger) {
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
       });
-    });
+    }
   
     document.addEventListener("click", (e) => {
-      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+      const isClickInside = submenuParent?.contains(e.target) || hamburger?.contains(e.target);
       if (!isClickInside && window.innerWidth <= 768) {
-        submenuParent.classList.remove("open");
+        submenuParent?.classList.remove("open");
       }
     });
+  }
+  // JS for navbar
+  fetch('navbar-de.html') 
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+      activateNavbarScripts(); 
+    })
+    .catch(error => console.error('Fehler beim Laden der Navbar:', error));
   </script>
+  
 </body>
 </html>

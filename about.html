@@ -27,23 +27,7 @@
   </header>
 
   <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <ul class="nav-menu">
-        <li><a href="about.html" class="active-page">About</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li class="has-submenu">
-          <a href="services.html">Services</a>
-          <ul class="submenu">
-            <li><a href="services-consulting.html">Research Consulting</a></li>
-            <li><a href="services-translation.html">Translation</a></li>
-          </ul>
-        </li>
-        <li><a href="articles.html">Articles</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div id="navbar-placeholder"></div>
 
   <!-- Main Content -->
   <main>
@@ -77,30 +61,35 @@
     <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
   </footer>
 
-  <!-- JS for Hamburger + Dropdown -->
+  <!-- JS -->
   <script>
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
-    const submenuParent = document.querySelector(".has-submenu");
-    const submenuToggles = document.querySelectorAll(".submenu-toggle"); 
-  
-    hamburger.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-    });
-  
-    submenuToggles.forEach(toggle => {
-      toggle.addEventListener("click", (e) => {
-        const parent = e.target.closest(".has-submenu");
-        parent.classList.toggle("open");
-      });
-    });
-  
-    document.addEventListener("click", (e) => {
-      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
-      if (!isClickInside && window.innerWidth <= 768) {
-        submenuParent.classList.remove("open");
+    function activateNavbarScripts() {
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-menu");
+      const submenuParent = document.querySelector(".has-submenu");
+    
+      if (hamburger) {
+        hamburger.addEventListener("click", () => {
+          navMenu.classList.toggle("active");
+        });
       }
-    });
-  </script>
+    
+      document.addEventListener("click", (e) => {
+        const isClickInside = submenuParent?.contains(e.target) || hamburger?.contains(e.target);
+        if (!isClickInside && window.innerWidth <= 768) {
+          submenuParent?.classList.remove("open");
+        }
+      });
+    }
+    // JS for navbar
+    fetch('navbar-en.html') 
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        activateNavbarScripts(); 
+      })
+      .catch(error => console.error('Fehler beim Laden der Navbar:', error));
+    </script>
+    
 </body>
 </html>
