@@ -27,7 +27,7 @@
   </header>
 
   <!-- Navigation -->
-  <div id="navbar-placeholder"></div>
+  <div id="navbar-placeholder" style="display:none;"></div>
 
   <!-- Main Content -->
   <main>
@@ -44,35 +44,37 @@
     <p>&copy; 2025 JM Sugawara. All rights reserved.</p>
   </footer>
 
-  <!-- JS -->
-  <script>
-    function activateNavbarScripts() {
-      const hamburger = document.querySelector(".hamburger");
-      const navMenu = document.querySelector(".nav-menu");
-      const submenuParent = document.querySelector(".has-submenu");
-    
-      if (hamburger) {
-        hamburger.addEventListener("click", () => {
-          navMenu.classList.toggle("active");
-        });
-      }
-    
-      document.addEventListener("click", (e) => {
-        const isClickInside = submenuParent?.contains(e.target) || hamburger?.contains(e.target);
-        if (!isClickInside && window.innerWidth <= 768) {
-          submenuParent?.classList.remove("open");
-        }
+<!-- JS -->
+<script>
+  function activateNavbarScripts() {
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const submenuParent = document.querySelector(".has-submenu");
+
+    if (hamburger) {
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
       });
     }
-    // JS for navbar
-    fetch('navbar-en.html') 
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbar-placeholder').innerHTML = data;
-        activateNavbarScripts(); 
-      })
-      .catch(error => console.error('Fehler beim Laden der Navbar:', error));
-    </script>
+
+    document.addEventListener("click", (e) => {
+      const isClickInside = submenuParent?.contains(e.target) || hamburger?.contains(e.target);
+      if (!isClickInside && window.innerWidth <= 768) {
+        submenuParent?.classList.remove("open");
+      }
+    });
+  }
+
+  fetch('navbar-en.html') // or navbar-de.html
+    .then(response => response.text())
+    .then(data => {
+      const navbar = document.getElementById('navbar-placeholder');
+      navbar.innerHTML = data;
+      navbar.style.display = 'block'; // <-- make navbar visible only after loading
+      activateNavbarScripts();
+    })
+    .catch(error => console.error('Error loading the navbar:', error));
+</script>
     
 </body>
 </html>
