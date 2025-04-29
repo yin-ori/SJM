@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum & Datenschutz | JM Sugawara</title>
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+3&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index-de.html" class="logo">
+      <img src="assets/lavender.png" alt="JM Sugawara Logo" />
+      J<span class="logo-highlight">M</span> Sugawara
+    </a>    
+    <div class="header-right">
+      <button class="hamburger" aria-label="Menü umschalten">&#9776;</button>
+      <div id="language-switch">
+        <a href="privacy.html">EN</a> |
+        <a href="privacy-de.html" class="active-lang">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="about.html">Über mich</a></li>
+        <li><a href="research.html">Forschung</a></li>
+        <li class="has-submenu">
+          <a href="services.html">Angebote</a>
+          <ul class="submenu">
+            <li><a href="services-consulting.html">Forschungsberatung</a></li>
+            <li><a href="services-translation.html">Übersetzung</a></li>
+          </ul>
+        </li>
+        <li><a href="articles.html">Artikel</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <div class="text-box">
+        <div class="imprint">
+        <h2>Impressum</h2>
+        <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong>
+        <p><strong>Name:</strong> JM Sugawara</p>
+        <p><strong>Adresse:</strong> Toyohira-ku Nishioka 4-jô, 062-0034 Sapporo, Japan</p>
+        <p><strong>E-Mail:</strong> <a href="mailto:jm.sugawara@gmail.com">jm.sugawara@gmail.com</a></p>
+        <br>
+        <h2>Datenschutzerklärung</h2>
+        <h3>1. Verantwortlich</h3>
+        <p>JM Sugawara</p>
+        <p>Nishioka 4-jô, 062-0034 Sapporo, Japan</p> 
+        <p>E-Mail: <a href="mailto:jm.sugawara@gmail.com">jm.sugawara@gmail.com</a></p>
+
+        <h3>2. Erhebung und Verarbeitung personenbezogener Daten</h3>
+        <p>Personenbezogene Daten werden nur erhoben, wenn Sie uns diese freiwillig mitteilen, z.&nbsp;B. bei einer Kontaktaufnahme per E-Mail oder über ein Kontaktformular.</p>
+
+        <h3>3. Weitergabe von Daten</h3>
+        <p>Eine Weitergabe Ihrer personenbezogenen Daten an Dritte erfolgt nicht ohne Ihre ausdrückliche Einwilligung.</p>
+
+        <h3>4. Ihre Rechte</h3>
+        <p>Sie haben das Recht auf Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten sowie auf Berichtigung, Löschung oder Einschränkung der Verarbeitung. Darüber hinaus haben Sie ein Widerspruchsrecht gegen die Verarbeitung Ihrer Daten.</p>
+
+        <h3>5. Verwendung von Cookies</h3>
+        <p>Diese Website verwendet Cookies, um die Benutzerfreundlichkeit zu verbessern und bestimmte Funktionen bereitzustellen.</p>
+
+        <h3>6. Datensicherheit</h3>
+        <p>Wir treffen geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre Daten gegen Manipulation, Verlust, Zerstörung oder den Zugriff unberechtigter Personen zu schützen.</p>
+
+        <h3>Hinweis für Nutzer aus Japan</h3>
+        <p>Für Nutzer mit Wohnsitz in Japan erfolgt die Verarbeitung personenbezogener Daten zusätzlich in Übereinstimmung mit dem japanischen Gesetz zum Schutz personenbezogener Informationen (APPI).</p>
+      </div>
+     </div> 
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 JM Sugawara. Alle Rechte vorbehalten.</p>
+    <p><a href="privacy-de.html">Impressum | Datenschutz</a></p>
+  </footer>
+  
+  <!-- JS -->
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const submenuParent = document.querySelector(".has-submenu");
+    const submenuToggles = document.querySelectorAll(".submenu-toggle");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    submenuToggles.forEach(toggle => {
+      toggle.addEventListener("click", (e) => {
+        const parent = e.target.closest(".has-submenu");
+        parent.classList.toggle("open");
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      const isClickInside = submenuParent.contains(e.target) || hamburger.contains(e.target);
+      if (!isClickInside && window.innerWidth <= 768) {
+        submenuParent.classList.remove("open");
+      }
+    });
+  </script>
+</body>
+</html>

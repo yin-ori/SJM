@@ -262,13 +262,15 @@ section {
   line-height: 1.8;
 }
 
-.text-box a {
+.text-box a,
+footer a {
   color: #7D6BA2;
   font-weight: 600;
   text-decoration: none;
 }
 
-.text-box a:hover {
+.text-box a:hover,
+footer a:hover {
   color: #5A4C78;
   border-bottom: 1px solid #7D6BA2; 
 }
@@ -415,6 +417,16 @@ form button:hover {
   display: none;
   font-weight: 600;
   color: #4A4265;
+}
+
+/* Imprint */
+.imprint h2,h3 {
+  margin-bottom: 1em;
+}
+
+.imprint p {
+  line-height: 100%;
+  margin-bottom: 1em;
 }
 
 /* Footer */
