@@ -638,7 +638,8 @@ footer {
   .cert-item {
     background-color: #5A5550;
   }
-
+  
+  .cert-category h3,
   .cert-item p {
     color: #EAE4DC;
   }
