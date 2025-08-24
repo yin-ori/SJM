@@ -164,12 +164,11 @@ main {
 
 /* Hero Section */
 .hero {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  position: relative;
+  margin: 40px 0;
   width: 100vw;
   left: calc(-1 * ((100vw - 100%) / 2));
-  position: relative;
-  max-height: 300px;
+  height: clamp(260px, 45vw, 460px); /* flexible Höhe */
   overflow: hidden;
 }
 
