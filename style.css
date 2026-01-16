@@ -128,7 +128,7 @@ header {
 .submenu {
   display: none;
   position: absolute;
-  top: 100%; 
+  top: 100%;
   left: 0;
   background-color: #FCF9F4;
   border-radius: 5px;
@@ -136,6 +136,10 @@ header {
   list-style: none;
   min-width: 180px;
   z-index: 100;
+}
+
+.submenu a {
+  border-radius: 0;
 }
 
 /* Submenu visible */
@@ -177,6 +181,7 @@ main {
   height: 100%;
   object-fit: cover;
   display: block;
+  opacity: 0.3;
 }
 
 .hero-overlay {
