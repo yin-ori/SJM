@@ -868,3 +868,7 @@ footer {
 [data-theme="dark"] footer {
   border-top: 1px solid #5C5854;
 }
+
+[data-theme="dark"] .hero-overlay h1 {
+  color: #FFFFFF;
+}
