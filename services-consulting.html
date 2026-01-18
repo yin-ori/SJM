@@ -19,6 +19,19 @@
       </a>
     <div class="header-right">
       <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="toggle-track">
+          <span class="toggle-knob">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </span>
+        </span>
+      </button>
       <div id="language-switch">
         <a href="services-consulting.html" class="active-lang">EN</a> |
         <a href="services-consulting-de.html">DE</a>
@@ -73,7 +86,7 @@
           set that combines academic expertise with structured project methodologies:
         </p>
         <ul>
-          <li><strong>Academic Background:</strong> I have studied at higher education institutions, including the <strong">German University of Excellence, University of Bonn</strong>, during my undergraduate studies, <strong>Tôhoku University</strong> during my graduate studies, and passed doctoral classes at the <strong>Arctic University of Norway</strong> for my doctoral studies. This academic diversity equips me to address the specific needs of students from varied backgrounds.</li>
+          <li><strong>Academic Background:</strong> I have studied at higher education institutions, including the <strong>German University of Excellence, University of Bonn</strong>, during my undergraduate studies, <strong>Tôhoku University</strong> during my graduate studies, and passed doctoral classes at the <strong>Arctic University of Norway</strong> for my doctoral studies. This academic diversity equips me to address the specific needs of students from varied backgrounds.</li>
           <li><strong>Professional Experience:</strong> A decade of experience in IT project management in Germany and Japan have equipped me with proven methodologies for goal-oriented planning and effective execution. As a <strong>Certified Agile Product Owner</strong> and <strong>PMI Certified Associate in Project Management (CAPM)</strong>, I bring structured, agile techniques to help students manage complex projects like their thesis. In addition, I have completed research management certifications, bridging my project management skills with academic research practices. You can find my licenses here.</li>
           <li><strong>Student-Centered Approach:</strong> As both a working academic and a parent, I understand the time and responsibility pressures that academics face. I am committed to helping students break down their thesis projects into achievable, manageable steps, ensuring they can progress effectively toward completion.</li>
         </ul>
@@ -135,6 +148,23 @@
     if (!isClickInside && window.innerWidth <= 768) {
       submenuParent.classList.remove("open");
     }
+  });
+
+  // Theme Toggle
+  const themeToggle = document.getElementById("theme-toggle");
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme) {
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
   });
 </script>
 </body>
